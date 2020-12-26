@@ -11,23 +11,23 @@ namespace Project_S_Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ApointmentsController : ControllerBase
+    public class AppointmentController : ControllerBase
     {
         private readonly AppointmentContext _context;
 
-        public ApointmentsController(AppointmentContext context)
+        public AppointmentController(AppointmentContext context)
         {
             _context = context;
         }
 
-        // GET: api/Apointments
+        // GET: api/Appointment
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Appointment>>> GetAppointments()
         {
             return await _context.Appointments.ToListAsync();
         }
 
-        // GET: api/Apointments/5
+        // GET: api/Appointment/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Appointment>> GetAppointment(long id)
         {
@@ -41,7 +41,7 @@ namespace Project_S_Server.Controllers
             return appointment;
         }
 
-        // PUT: api/Apointments/5
+        // PUT: api/Appointment/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAppointment(long id, Appointment appointment)
@@ -72,7 +72,7 @@ namespace Project_S_Server.Controllers
             return NoContent();
         }
 
-        // POST: api/Apointments
+        // POST: api/Appointment
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Appointment>> PostAppointment(Appointment appointment)
@@ -83,7 +83,7 @@ namespace Project_S_Server.Controllers
             return CreatedAtAction("GetAppointment", new { id = appointment.Id }, appointment);
         }
 
-        // DELETE: api/Apointments/5
+        // DELETE: api/Appointment/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAppointment(long id)
         {
